@@ -1,0 +1,17 @@
+{
+  "name": "gm-receipts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GM team receipt / tax-invoice collection — upload, AI extract, Google Sheet sync",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^2.0.0"
+  }
+}

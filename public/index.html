@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>GM Receipts — เก็บใบเสร็จ/ใบกำกับภาษี</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>📋 GM Receipts</h1>
+    <p>อัปโหลดใบเสร็จ / ใบกำกับภาษี</p>
+  </header>
+
+  <main class="wrap">
+    <section id="sheet-banner" class="banner hidden"></section>
+
+    <form id="receipt-form" novalidate>
+      <div class="field">
+        <label for="receipt-input">ถ่ายรูป / เลือกไฟล์ใบเสร็จ (รูปภาพ หรือ PDF)</label>
+        <div class="capture-row">
+          <label class="capture-btn">
+            📷 ถ่ายรูป
+            <input id="camera-input" type="file" accept="image/*" capture="environment" hidden />
+          </label>
+          <label class="capture-btn secondary">
+            📁 เลือกไฟล์
+            <input id="file-input" type="file" accept="image/*,application/pdf" hidden />
+          </label>
+        </div>
+        <div id="preview" class="preview hidden">
+          <img id="preview-img" alt="preview" />
+          <span id="preview-filename"></span>
+        </div>
+      </div>
+
+      <div id="extract-status" class="status hidden"></div>
+
+      <div class="grid">
+        <div class="field">
+          <label for="date">วันที่</label>
+          <input id="date" name="date" type="date" required />
+        </div>
+        <div class="field">
+          <label for="taxInvoiceNo">เลขที่ใบกำกับภาษี</label>
+          <input id="taxInvoiceNo" name="taxInvoiceNo" type="text" />
+        </div>
+        <div class="field">
+          <label for="vendorName">ชื่อผู้ขาย</label>
+          <input id="vendorName" name="vendorName" type="text" />
+        </div>
+        <div class="field">
+          <label for="taxId">เลขประจำตัวผู้เสียภาษี</label>
+          <input id="taxId" name="taxId" type="text" />
+        </div>
+        <div class="field wide">
+          <label for="description">รายละเอียดบิล</label>
+          <input id="description" name="description" type="text" />
+        </div>
+        <div class="field">
+          <label for="subtotal">Sub total</label>
+          <input id="subtotal" name="subtotal" type="number" step="0.01" inputmode="decimal" />
+        </div>
+        <div class="field">
+          <label for="vat">Vat 7%</label>
+          <input id="vat" name="vat" type="number" step="0.01" inputmode="decimal" />
+        </div>
+        <div class="field">
+          <label for="total">Total</label>
+          <input id="total" name="total" type="number" step="0.01" inputmode="decimal" required />
+        </div>
+        <div class="field">
+          <label for="paymentType">ประเภทการชำระเงิน</label>
+          <select id="paymentType" name="paymentType" required>
+            <option value="" disabled selected>เลือก...</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="submitter">ผู้ส่ง</label>
+          <select id="submitter" name="submitter" required>
+            <option value="" disabled selected>เลือก...</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="submit-btn" type="submit" disabled>บันทึกใบเสร็จ</button>
+      <div id="submit-status" class="status hidden"></div>
+    </form>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
